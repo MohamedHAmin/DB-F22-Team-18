@@ -1,0 +1,86 @@
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\bin\Debug\MainPage-Demo.exe.config
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\bin\Debug\MainPage-Demo.exe
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\bin\Debug\MainPage-Demo.pdb
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.AssemblyReference.cache
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.SuggestedBindingRedirects.cache
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Form1.resources
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Properties.Resources.resources
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.GenerateResource.cache
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.CoreCompileInputs.cache
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.exe
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.pdb
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Edit.resources
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.History.resources
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Order.resources
+C:\Users\noure\Desktop\Repo\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\bin\Debug\MainPage-Demo.exe.config
+C:\Users\noure\Desktop\Repo\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\bin\Debug\MainPage-Demo.exe
+C:\Users\noure\Desktop\Repo\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\bin\Debug\MainPage-Demo.pdb
+C:\Users\noure\Desktop\Repo\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.AssemblyReference.cache
+C:\Users\noure\Desktop\Repo\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Form1.resources
+C:\Users\noure\Desktop\Repo\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Edit.resources
+C:\Users\noure\Desktop\Repo\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.History.resources
+C:\Users\noure\Desktop\Repo\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Order.resources
+C:\Users\noure\Desktop\Repo\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Properties.Resources.resources
+C:\Users\noure\Desktop\Repo\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.GenerateResource.cache
+C:\Users\noure\Desktop\Repo\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.CoreCompileInputs.cache
+C:\Users\noure\Desktop\Repo\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.exe
+C:\Users\noure\Desktop\Repo\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.pdb
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\bin\Debug\MainPage-Demo.exe.config
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\bin\Debug\MainPage-Demo.exe
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\bin\Debug\MainPage-Demo.pdb
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.AssemblyReference.cache
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.SuggestedBindingRedirects.cache
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Form1.resources
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Edit.resources
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.History.resources
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Properties.Resources.resources
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.GenerateResource.cache
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.CoreCompileInputs.cache
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.exe
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage-Demo.pdb
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Order.resources
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.CreateUser.resources
+D:\Hello World\First project\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.PlaceOrder.resources
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.CreateUser.resources
+D:\Work\project-01-cash-system\Cash-system-for-beauty-salon\MainPage-Demo\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.PlaceOrder.resources
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\bin\Debug\MainPage-Demo.exe.config
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\bin\Debug\MainPage-Demo.exe
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\bin\Debug\MainPage-Demo.pdb
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage-Demo.csprojAssemblyReference.cache
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Form1.resources
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.CreateUser.resources
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Edit.resources
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.History.resources
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Order.resources
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.PlaceOrder.resources
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Properties.Resources.resources
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.GenerateResource.cache
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.CoreCompileInputs.cache
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage-Demo.exe
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage-Demo.pdb
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.devices.resources
+C:\college_items\database\databbase project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.employees.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\bin\Debug\MainPage-Demo.exe.config
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\bin\Debug\MainPage-Demo.exe
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\bin\Debug\MainPage-Demo.pdb
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.AssemblyReference.cache
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.SuggestedBindingRedirects.cache
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.CreateUser.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.devices.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Edit.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.employees.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.History.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.PlaceOrder.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Properties.Resources.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.GenerateResource.cache
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.CoreCompileInputs.cache
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage-Demo.exe
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage-Demo.pdb
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Login_Form.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.createAccount.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.CreateCustomer.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.CreateWorker.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.adminView.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Order.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.TellerView.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.ToMaintenance.resources
