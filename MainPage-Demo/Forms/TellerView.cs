@@ -135,20 +135,23 @@ namespace MainPage_Demo.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             DataTable dt1 = controllerObj.SelectALLSchedule();
-            for (int i = 0; i < dt1.Rows.Count; i++)
+            if (dt1 != null)
             {
-                // < 0 − If date1 is earlier than date2
-                // = 0 − If date1 is the same as date2
-                // > 0 − If date1 is later than date2
-                DateTime finishTime = (DateTime)dt1.Rows[i][4];
-                if (DateTime.Compare(finishTime, DateTime.Now) < 0)
+                for (int i = 0; i < dt1.Rows.Count; i++)
                 {
-                    int del = controllerObj.DeleteSchedule(Convert.ToInt32(dt1.Rows[i][1]));
+                    // < 0 − If date1 is earlier than date2
+                    // = 0 − If date1 is the same as date2
+                    // > 0 − If date1 is later than date2
+                    DateTime finishTime = (DateTime)dt1.Rows[i][4];
+                    if (DateTime.Compare(finishTime, DateTime.Now) < 0)
+                    {
+                        int del = controllerObj.DeleteSchedule(Convert.ToInt32(dt1.Rows[i][1]));
+                    }
                 }
+                DataTable dt = controllerObj.SelectWorkerSchedule(workers.SelectedValue.ToString());
+                scheduleView.DataSource = dt;
+                scheduleView.Refresh();
             }
-            DataTable dt = controllerObj.SelectWorkerSchedule(workers.SelectedValue.ToString());
-            scheduleView.DataSource = dt;
-            scheduleView.Refresh();
         }
     }
 }

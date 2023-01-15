@@ -162,15 +162,18 @@ namespace MainPage_Demo.Forms
             int ID = Convert.ToInt32(dt.Rows[0][0]);
             //DONE 4-Update schedule
             dt = controllerObj.SelectALLSchedule();
-            for(int i = 0; i < dt.Rows.Count; i++)
+            if (dt != null)
             {
-                // < 0 − If date1 is earlier than date2
-                // = 0 − If date1 is the same as date2
-                // > 0 − If date1 is later than date2
-                DateTime finishTime = (DateTime)dt.Rows[i][4];
-                if (DateTime.Compare(finishTime,DateTime.Now) < 0)
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    int del = controllerObj.DeleteSchedule(Convert.ToInt32(dt.Rows[i][1]));
+                    // < 0 − If date1 is earlier than date2
+                    // = 0 − If date1 is the same as date2
+                    // > 0 − If date1 is later than date2
+                    DateTime finishTime = (DateTime)dt.Rows[i][4];
+                    if (DateTime.Compare(finishTime, DateTime.Now) < 0)
+                    {
+                        int del = controllerObj.DeleteSchedule(Convert.ToInt32(dt.Rows[i][1]));
+                    }
                 }
             }
             //TODO 5-Add to schedule
