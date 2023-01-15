@@ -41,10 +41,10 @@ namespace MainPage_Demo.Forms
             this.employeepanel.AutoScroll = true;
             this.employeepanel.BackColor = System.Drawing.Color.LightBlue;
             this.employeepanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.employeepanel.Location = new System.Drawing.Point(146, 35);
-            this.employeepanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.employeepanel.Location = new System.Drawing.Point(116, 28);
+            this.employeepanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.employeepanel.Name = "employeepanel";
-            this.employeepanel.Size = new System.Drawing.Size(931, 344);
+            this.employeepanel.Size = new System.Drawing.Size(766, 497);
             this.employeepanel.TabIndex = 4;
             // 
             // addemployee
@@ -53,10 +53,10 @@ namespace MainPage_Demo.Forms
             this.addemployee.BackColor = System.Drawing.Color.Silver;
             this.addemployee.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.addemployee.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold);
-            this.addemployee.Location = new System.Drawing.Point(506, 427);
-            this.addemployee.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.addemployee.Location = new System.Drawing.Point(408, 553);
+            this.addemployee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addemployee.Name = "addemployee";
-            this.addemployee.Size = new System.Drawing.Size(205, 71);
+            this.addemployee.Size = new System.Drawing.Size(182, 57);
             this.addemployee.TabIndex = 5;
             this.addemployee.Text = "Add Employee";
             this.addemployee.UseVisualStyleBackColor = false;
@@ -64,13 +64,14 @@ namespace MainPage_Demo.Forms
             // 
             // employees
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1306, 522);
+            this.ClientSize = new System.Drawing.Size(982, 639);
             this.Controls.Add(this.addemployee);
             this.Controls.Add(this.employeepanel);
             this.ForeColor = System.Drawing.Color.DimGray;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "employees";
             this.Text = "employess";
             this.Load += new System.EventHandler(this.employees_Load);

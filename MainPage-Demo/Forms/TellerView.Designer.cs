@@ -29,9 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TellerView));
             this.Main = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.current_work = new System.Windows.Forms.Panel();
+            this.scheduleView = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.workers = new System.Windows.Forms.ComboBox();
             this.Clock = new System.Windows.Forms.Label();
             this.TitleBar = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -45,18 +50,14 @@
             this.fullpage = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.scheduleView = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.workers = new System.Windows.Forms.ComboBox();
             this.Main.SuspendLayout();
             this.current_work.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.scheduleView)).BeginInit();
             this.TitleBar.SuspendLayout();
             this.Menu.SuspendLayout();
             this.LogoBar.SuspendLayout();
             this.fullpage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scheduleView)).BeginInit();
             this.SuspendLayout();
             // 
             // Main
@@ -98,6 +99,50 @@
             this.current_work.Name = "current_work";
             this.current_work.Size = new System.Drawing.Size(799, 525);
             this.current_work.TabIndex = 1;
+            // 
+            // scheduleView
+            // 
+            this.scheduleView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.scheduleView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.scheduleView.Location = new System.Drawing.Point(92, 140);
+            this.scheduleView.Name = "scheduleView";
+            this.scheduleView.ReadOnly = true;
+            this.scheduleView.RowHeadersWidth = 51;
+            this.scheduleView.RowTemplate.Height = 24;
+            this.scheduleView.Size = new System.Drawing.Size(617, 330);
+            this.scheduleView.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(120)))), ((int)(((byte)(143)))));
+            this.button1.Location = new System.Drawing.Point(574, 52);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(135, 34);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Select";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(87, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 26);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Worker :";
+            // 
+            // workers
+            // 
+            this.workers.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.workers.FormattingEnabled = true;
+            this.workers.Location = new System.Drawing.Point(224, 53);
+            this.workers.Name = "workers";
+            this.workers.Size = new System.Drawing.Size(245, 31);
+            this.workers.TabIndex = 4;
             // 
             // Clock
             // 
@@ -199,7 +244,7 @@
             this.devices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.devices.Font = new System.Drawing.Font("Segoe Print", 13.2F);
             this.devices.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(120)))), ((int)(((byte)(143)))));
-            this.devices.Image = global::MainPage_Demo.Properties.Resources.salon__2_;
+            this.devices.Image = ((System.Drawing.Image)(resources.GetObject("devices.Image")));
             this.devices.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.devices.Location = new System.Drawing.Point(0, 200);
             this.devices.Name = "devices";
@@ -264,49 +309,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
-            // scheduleView
-            // 
-            this.scheduleView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.scheduleView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.scheduleView.Location = new System.Drawing.Point(92, 140);
-            this.scheduleView.Name = "scheduleView";
-            this.scheduleView.ReadOnly = true;
-            this.scheduleView.RowHeadersWidth = 51;
-            this.scheduleView.RowTemplate.Height = 24;
-            this.scheduleView.Size = new System.Drawing.Size(617, 330);
-            this.scheduleView.TabIndex = 7;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(120)))), ((int)(((byte)(143)))));
-            this.button1.Location = new System.Drawing.Point(574, 52);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 34);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Select";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(87, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 26);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Worker :";
-            // 
-            // workers
-            // 
-            this.workers.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold);
-            this.workers.FormattingEnabled = true;
-            this.workers.Location = new System.Drawing.Point(224, 53);
-            this.workers.Name = "workers";
-            this.workers.Size = new System.Drawing.Size(233, 34);
-            this.workers.TabIndex = 4;
-            // 
             // TellerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -321,6 +323,7 @@
             this.Main.PerformLayout();
             this.current_work.ResumeLayout(false);
             this.current_work.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.scheduleView)).EndInit();
             this.TitleBar.ResumeLayout(false);
             this.TitleBar.PerformLayout();
             this.Menu.ResumeLayout(false);
@@ -328,7 +331,6 @@
             this.fullpage.ResumeLayout(false);
             this.fullpage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scheduleView)).EndInit();
             this.ResumeLayout(false);
 
         }

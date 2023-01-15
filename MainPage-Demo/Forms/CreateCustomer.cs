@@ -15,9 +15,11 @@ namespace MainPage_Demo.Forms
     public partial class CreateCustomer : Form
     {
         private Form activeForm;
+        Controller controllerObj;
         public CreateCustomer()
         {
             InitializeComponent();
+            controllerObj = new Controller();
         }
 
         private void OpenChildForm(Form childForm)
@@ -87,8 +89,26 @@ namespace MainPage_Demo.Forms
             }
             else
             {
-                //TODO - check if exist in db (SelectCustomer), if not Insert custmer in db (InsertCustomer)
-                MessageBox.Show("Customer created");
+                //DONE - check if exist in db (SelectCustomer), if not Insert custmer in db (InsertCustomer)
+                //check if custmer in db
+                DataTable dt = controllerObj.SelectCustomer(Phone.Text);
+                if (dt != null)
+                {
+                    MessageBox.Show("Customer already exist");                    
+                }
+                else
+                {
+                    int result = controllerObj.InsertCustomer(Name.Text, lastname.Text, Phone.Text);
+                    if (result == 0)
+                    {
+                        MessageBox.Show("The insertion of a new customer failed");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Customer profile created successfully!");
+                    }
+                    
+                }
                 this.Close();
             }
         }

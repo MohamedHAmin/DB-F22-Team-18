@@ -66,9 +66,6 @@ D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\bin\Debug\MainPage-Demo.pdb
 D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.AssemblyReference.cache
 D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage-Demo.csproj.SuggestedBindingRedirects.cache
 D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.CreateUser.resources
-D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.devices.resources
-D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Edit.resources
-D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.employees.resources
 D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.History.resources
 D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.PlaceOrder.resources
 D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Properties.Resources.resources
@@ -84,3 +81,10 @@ D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.adminView
 D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Order.resources
 D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.TellerView.resources
 D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.ToMaintenance.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.ChangePassword.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Inventory.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.employees.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Edit.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.AddService.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.Adddevice.resources
+D:\F22\DB\Project\DB-F22-Team-18\MainPage-Demo\obj\Debug\MainPage_Demo.Forms.devices.resources

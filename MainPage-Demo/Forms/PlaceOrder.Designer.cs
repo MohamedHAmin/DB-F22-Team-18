@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Remove = new System.Windows.Forms.Button();
+            this.customerName = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.TotalCost = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,8 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.customerName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderView)).BeginInit();
@@ -54,6 +55,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.Remove);
             this.panel1.Controls.Add(this.customerName);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.panel3);
@@ -72,6 +74,40 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(982, 639);
             this.panel1.TabIndex = 1;
+            // 
+            // Remove
+            // 
+            this.Remove.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Remove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
+            this.Remove.Location = new System.Drawing.Point(528, 170);
+            this.Remove.Name = "Remove";
+            this.Remove.Size = new System.Drawing.Size(114, 38);
+            this.Remove.TabIndex = 13;
+            this.Remove.Text = "Remove";
+            this.Remove.UseVisualStyleBackColor = true;
+            this.Remove.Click += new System.EventHandler(this.Remove_Click);
+            // 
+            // customerName
+            // 
+            this.customerName.AutoSize = true;
+            this.customerName.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold);
+            this.customerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
+            this.customerName.Location = new System.Drawing.Point(501, 66);
+            this.customerName.Name = "customerName";
+            this.customerName.Size = new System.Drawing.Size(189, 26);
+            this.customerName.TabIndex = 12;
+            this.customerName.Text = "Cutomer Name";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
+            this.label4.Location = new System.Drawing.Point(298, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(139, 26);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Customer :";
             // 
             // panel3
             // 
@@ -116,16 +152,17 @@
             this.Confirm.TabIndex = 8;
             this.Confirm.Text = "Confirm";
             this.Confirm.UseVisualStyleBackColor = true;
+            this.Confirm.Click += new System.EventHandler(this.Confirm_Click);
             // 
             // OrderView
             // 
             this.OrderView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.OrderView.Location = new System.Drawing.Point(105, 210);
+            this.OrderView.Location = new System.Drawing.Point(105, 230);
             this.OrderView.Name = "OrderView";
             this.OrderView.ReadOnly = true;
             this.OrderView.RowHeadersWidth = 51;
             this.OrderView.RowTemplate.Height = 24;
-            this.OrderView.Size = new System.Drawing.Size(498, 235);
+            this.OrderView.Size = new System.Drawing.Size(537, 235);
             this.OrderView.TabIndex = 7;
             // 
             // ApplyOffer
@@ -134,30 +171,33 @@
             this.ApplyOffer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
             this.ApplyOffer.Location = new System.Drawing.Point(744, 209);
             this.ApplyOffer.Name = "ApplyOffer";
-            this.ApplyOffer.Size = new System.Drawing.Size(96, 31);
+            this.ApplyOffer.Size = new System.Drawing.Size(96, 43);
             this.ApplyOffer.TabIndex = 6;
             this.ApplyOffer.Text = "Apply";
             this.ApplyOffer.UseVisualStyleBackColor = true;
+            this.ApplyOffer.Click += new System.EventHandler(this.ApplyOffer_Click);
             // 
             // Add
             // 
             this.Add.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
-            this.Add.Location = new System.Drawing.Point(528, 132);
+            this.Add.Location = new System.Drawing.Point(528, 126);
             this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(75, 30);
+            this.Add.Size = new System.Drawing.Size(114, 38);
             this.Add.TabIndex = 5;
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // serviceList
             // 
-            this.serviceList.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.serviceList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
+            this.serviceList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.serviceList.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.serviceList.ForeColor = System.Drawing.Color.Black;
             this.serviceList.FormattingEnabled = true;
-            this.serviceList.Location = new System.Drawing.Point(202, 131);
+            this.serviceList.Location = new System.Drawing.Point(202, 132);
             this.serviceList.Name = "serviceList";
-            this.serviceList.Size = new System.Drawing.Size(235, 31);
+            this.serviceList.Size = new System.Drawing.Size(273, 28);
             this.serviceList.TabIndex = 4;
             // 
             // label3
@@ -175,7 +215,7 @@
             // 
             this.offerLable.AutoSize = true;
             this.offerLable.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.offerLable.Location = new System.Drawing.Point(750, 169);
+            this.offerLable.Location = new System.Drawing.Point(739, 168);
             this.offerLable.Name = "offerLable";
             this.offerLable.Size = new System.Drawing.Size(81, 26);
             this.offerLable.TabIndex = 2;
@@ -216,28 +256,6 @@
             this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             this.pictureBox1.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
-            this.label4.Location = new System.Drawing.Point(298, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 26);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Customer :";
-            // 
-            // customerName
-            // 
-            this.customerName.AutoSize = true;
-            this.customerName.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold);
-            this.customerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
-            this.customerName.Location = new System.Drawing.Point(501, 66);
-            this.customerName.Name = "customerName";
-            this.customerName.Size = new System.Drawing.Size(189, 26);
-            this.customerName.TabIndex = 12;
-            this.customerName.Text = "Cutomer Name";
-            // 
             // PlaceOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -276,5 +294,6 @@
         private System.Windows.Forms.Label offerLable;
         private System.Windows.Forms.Label customerName;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button Remove;
     }
 }

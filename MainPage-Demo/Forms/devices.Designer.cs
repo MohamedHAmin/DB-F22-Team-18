@@ -31,8 +31,7 @@ namespace MainPage_Demo.Forms
         {
             this.productPanel = new System.Windows.Forms.Panel();
             this.editPriceTitle = new System.Windows.Forms.Label();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.discardButton = new System.Windows.Forms.Button();
+            this.adddeviceButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // productPanel
@@ -64,47 +63,28 @@ namespace MainPage_Demo.Forms
             this.editPriceTitle.Text = "Devices";
             this.editPriceTitle.Click += new System.EventHandler(this.editPriceTitle_Click);
             // 
-            // saveButton
+            // adddeviceButton
             // 
-            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.saveButton.BackColor = System.Drawing.Color.Silver;
-            this.saveButton.Enabled = false;
-            this.saveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.saveButton.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.ForeColor = System.Drawing.Color.DimGray;
-            this.saveButton.Location = new System.Drawing.Point(271, 558);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(147, 65);
-            this.saveButton.TabIndex = 6;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click_1);
-            // 
-            // discardButton
-            // 
-            this.discardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.discardButton.BackColor = System.Drawing.Color.Silver;
-            this.discardButton.Enabled = false;
-            this.discardButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.discardButton.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discardButton.ForeColor = System.Drawing.Color.DimGray;
-            this.discardButton.Location = new System.Drawing.Point(609, 558);
-            this.discardButton.Margin = new System.Windows.Forms.Padding(0);
-            this.discardButton.Name = "discardButton";
-            this.discardButton.Size = new System.Drawing.Size(147, 65);
-            this.discardButton.TabIndex = 7;
-            this.discardButton.Text = "Discard";
-            this.discardButton.UseVisualStyleBackColor = false;
-            this.discardButton.Click += new System.EventHandler(this.discardButton_Click_1);
+            this.adddeviceButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.adddeviceButton.BackColor = System.Drawing.Color.Silver;
+            this.adddeviceButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.adddeviceButton.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adddeviceButton.ForeColor = System.Drawing.Color.DimGray;
+            this.adddeviceButton.Location = new System.Drawing.Point(442, 557);
+            this.adddeviceButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.adddeviceButton.Name = "adddeviceButton";
+            this.adddeviceButton.Size = new System.Drawing.Size(256, 65);
+            this.adddeviceButton.TabIndex = 6;
+            this.adddeviceButton.Text = "Add Device";
+            this.adddeviceButton.UseVisualStyleBackColor = false;
+            this.adddeviceButton.Click += new System.EventHandler(this.adddevice_button);
             // 
             // devices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 677);
-            this.Controls.Add(this.discardButton);
-            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.adddeviceButton);
             this.Controls.Add(this.editPriceTitle);
             this.Controls.Add(this.productPanel);
             this.Name = "devices";
@@ -120,7 +100,6 @@ namespace MainPage_Demo.Forms
 
         private System.Windows.Forms.Panel productPanel;
         private System.Windows.Forms.Label editPriceTitle;
-        private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button discardButton;
+        private System.Windows.Forms.Button adddeviceButton;
     }
 }

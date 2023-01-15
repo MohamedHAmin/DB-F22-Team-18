@@ -14,17 +14,26 @@ namespace MainPage_Demo.Forms
     {
         private Button currentButton;
         private Form activeForm;
+        Controller controllerObj;
 
-
-        public TellerView()
+        string tellername;
+        public TellerView(string username)
         {
             InitializeComponent();
             CloseChildForm.Visible = false;
             timer1.Start();
+            controllerObj = new Controller();
 
-            scheduleView.Columns.Add("column0", "Customer");
-            scheduleView.Columns.Add("column1", "Start Time");
-            scheduleView.Columns.Add("column2", "Finsh Time");
+            //scheduleView.Columns.Add("column0", "Customer");
+            //scheduleView.Columns.Add("column1", "Start Time");
+            //scheduleView.Columns.Add("column2", "Finsh Time");
+            
+            tellername = username;
+
+            DataTable dt = controllerObj.SelectAllWorkers();
+            workers.DataSource = dt;
+            workers.DisplayMember = "FirstName";
+            workers.ValueMember = "SSN";
         }
 
         private void ActivateButton(object btnSender, string colorHex)
@@ -90,7 +99,7 @@ namespace MainPage_Demo.Forms
         }
         private void Order_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.Order(), sender, "#b6d9d9");
+            OpenChildForm(new Forms.Order(tellername), sender, "#b6d9d9");
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
@@ -100,7 +109,7 @@ namespace MainPage_Demo.Forms
 
         private void devices_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.ToMaintenance(), sender, "#88b8c2");
+            OpenChildForm(new Forms.ToMaintenance(tellername), sender, "#88b8c2");
         }
 
         private void CloseChildForm_Click(object sender, EventArgs e)
@@ -121,6 +130,25 @@ namespace MainPage_Demo.Forms
         {
             Form loginPage = new Forms.Login_Form();
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataTable dt1 = controllerObj.SelectALLSchedule();
+            for (int i = 0; i < dt1.Rows.Count; i++)
+            {
+                // < 0 − If date1 is earlier than date2
+                // = 0 − If date1 is the same as date2
+                // > 0 − If date1 is later than date2
+                DateTime finishTime = (DateTime)dt1.Rows[i][4];
+                if (DateTime.Compare(finishTime, DateTime.Now) < 0)
+                {
+                    int del = controllerObj.DeleteSchedule(Convert.ToInt32(dt1.Rows[i][1]));
+                }
+            }
+            DataTable dt = controllerObj.SelectWorkerSchedule(workers.SelectedValue.ToString());
+            scheduleView.DataSource = dt;
+            scheduleView.Refresh();
         }
     }
 }

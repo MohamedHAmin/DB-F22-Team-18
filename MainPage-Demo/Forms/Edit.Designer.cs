@@ -33,6 +33,7 @@ namespace MainPage_Demo.Forms
             this.saveButton = new System.Windows.Forms.Button();
             this.discardButton = new System.Windows.Forms.Button();
             this.productPanel = new System.Windows.Forms.Panel();
+            this.addservice = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // editPriceTitle
@@ -44,9 +45,10 @@ namespace MainPage_Demo.Forms
             this.editPriceTitle.Location = new System.Drawing.Point(96, 39);
             this.editPriceTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.editPriceTitle.Name = "editPriceTitle";
-            this.editPriceTitle.Size = new System.Drawing.Size(697, 68);
+            this.editPriceTitle.Size = new System.Drawing.Size(280, 68);
             this.editPriceTitle.TabIndex = 0;
-            this.editPriceTitle.Text = "Products and Services";
+            this.editPriceTitle.Text = "Services";
+            this.editPriceTitle.Click += new System.EventHandler(this.editPriceTitle_Click);
             // 
             // saveButton
             // 
@@ -67,13 +69,13 @@ namespace MainPage_Demo.Forms
             // 
             // discardButton
             // 
-            this.discardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.discardButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.discardButton.BackColor = System.Drawing.Color.Silver;
             this.discardButton.Enabled = false;
             this.discardButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.discardButton.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.discardButton.ForeColor = System.Drawing.Color.DimGray;
-            this.discardButton.Location = new System.Drawing.Point(605, 583);
+            this.discardButton.Location = new System.Drawing.Point(592, 583);
             this.discardButton.Margin = new System.Windows.Forms.Padding(0);
             this.discardButton.Name = "discardButton";
             this.discardButton.Size = new System.Drawing.Size(147, 65);
@@ -97,11 +99,28 @@ namespace MainPage_Demo.Forms
             this.productPanel.TabIndex = 3;
             this.productPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.productPanel_Paint);
             // 
+            // addservice
+            // 
+            this.addservice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.addservice.BackColor = System.Drawing.Color.Silver;
+            this.addservice.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.addservice.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addservice.ForeColor = System.Drawing.Color.DimGray;
+            this.addservice.Location = new System.Drawing.Point(871, 583);
+            this.addservice.Margin = new System.Windows.Forms.Padding(0);
+            this.addservice.Name = "addservice";
+            this.addservice.Size = new System.Drawing.Size(200, 65);
+            this.addservice.TabIndex = 4;
+            this.addservice.Text = "Add Service";
+            this.addservice.UseVisualStyleBackColor = false;
+            this.addservice.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 677);
+            this.Controls.Add(this.addservice);
             this.Controls.Add(this.discardButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.editPriceTitle);
@@ -124,6 +143,7 @@ namespace MainPage_Demo.Forms
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button discardButton;
         private System.Windows.Forms.Panel productPanel;
+        private System.Windows.Forms.Button addservice;
     }
 }
 

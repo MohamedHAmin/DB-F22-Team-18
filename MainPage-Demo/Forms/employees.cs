@@ -8,17 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.Text.RegularExpressions;
+
 namespace MainPage_Demo.Forms
 {
     public partial class employees : Form
     {
+        Controller controllerObj;
         int totalemployees = 0;
         int listSize_employees = 10;
-        int[] dbphone_no;
-        int[] dbsalary;
-        string buttonsState ;
+        string buttonsState;
+     
         public employees()
         {
+            controllerObj = new Controller();
             InitializeComponent();
             this.Paint += new PaintEventHandler(set_background);
         }
@@ -42,7 +45,7 @@ namespace MainPage_Demo.Forms
             }
         }
 
-        private GroupBox createemployee(String employeeName, Point position,string type,int phone_no,int salary)
+        private GroupBox createemployee(String employeeName, Point position,string type,string phone_no,int salary,long ssn)
         {
             Label nametemp = new Label();
             nametemp.Text = "Name: "+employeeName;
@@ -50,6 +53,7 @@ namespace MainPage_Demo.Forms
             nametemp.Size = new Size(190 , 15);
             nametemp.ForeColor = Color.FromArgb(33, 86, 118);
             nametemp.Font = new Font("Lucida Bright", 9, FontStyle.Bold);
+            nametemp.Tag = totalemployees;
 
             Label typetemp = new Label();
             typetemp.Text = type;
@@ -57,6 +61,7 @@ namespace MainPage_Demo.Forms
             typetemp.Size = new Size(60, 15);
             typetemp.ForeColor = Color.FromArgb(33, 86, 118);
             typetemp.Font = new Font("Lucida Bright", 9, FontStyle.Bold);
+            typetemp.Tag = totalemployees;
 
             Label phoneTemp = new Label();
             phoneTemp.Text = "phone number :";
@@ -64,6 +69,7 @@ namespace MainPage_Demo.Forms
             phoneTemp.Size = new Size(140, 15);
             phoneTemp.ForeColor = Color.FromArgb(33, 86, 118);
             phoneTemp.Font = new Font("Lucida Bright", 9, FontStyle.Bold);
+            phoneTemp.Tag = totalemployees;
 
             Label salaryTemp = new Label();
             salaryTemp.Text = "salary : " + salary.ToString();
@@ -71,20 +77,23 @@ namespace MainPage_Demo.Forms
             salaryTemp.Size = new Size(46, 15);
             salaryTemp.ForeColor = Color.FromArgb(33, 86, 118);
             salaryTemp.Font = new Font("Lucida Bright", 9, FontStyle.Bold);
+            salaryTemp.Tag = totalemployees;
+
 
             TextBox phone_no_TextBox = new TextBox();
             phone_no_TextBox.Text = phone_no.ToString();
             phone_no_TextBox.Location = new Point(26, 80);
             phone_no_TextBox.Size = new Size(80, 20);
             phone_no_TextBox.TextChanged += phone_noChangeCheck;
-
+            phone_no_TextBox.Tag = totalemployees;
 
             TextBox salaryTextBox = new TextBox();
             salaryTextBox.Text = salary.ToString();
             salaryTextBox.Location = new Point(80, 105);
             salaryTextBox.Size = new Size(70, 20);
             salaryTextBox.TextChanged += salaryChangeCheck;
-         
+            salaryTextBox.Tag = totalemployees;
+
 
             Button remove = new Button();
             remove.Text = "Remove";
@@ -95,6 +104,7 @@ namespace MainPage_Demo.Forms
             remove.Click += removeemployee;
             remove.BackColor = Color.LightCoral;
             remove.ForeColor = Color.FromArgb(33, 86, 118);
+            remove.Tag = totalemployees;
 
             Button save = new Button();
             save.Text = "Save";
@@ -103,12 +113,23 @@ namespace MainPage_Demo.Forms
             save.BackColor = Color.Silver;
             save.Visible = true;
             save.Click += saveemployee;
+            save.Tag = totalemployees;
+
 
             GroupBox employee = new GroupBox();
             employee.Location = position;
             employee.Size = new Size(210, 170);
-            employee.Tag = totalemployees;
+            employee.Tag = ssn;
             employee.Controls.Add(nametemp);
+            employee.Controls.Add(typetemp);
+            employee.Controls.Add(phoneTemp);
+            employee.Controls.Add(phone_no_TextBox);
+            employee.Controls.Add(salaryTemp);
+            employee.Controls.Add(salaryTextBox);
+            employee.Controls.Add(remove);
+            employee.Controls.Add(save);
+            employee.Controls.Add(nametemp);
+            
             employee.Controls.Add(typetemp);
             employee.Controls.Add(phoneTemp);
             employee.Controls.Add(phone_no_TextBox);
@@ -122,39 +143,42 @@ namespace MainPage_Demo.Forms
       
         private void employees_Load(object sender, EventArgs e)
         {
-                //Temporary Variables To Be Replaced by DB Values
-                Point origin = new Point(35, 3);
-                Point pos = new Point(35, 3);
-                int maxPerRow = 4;
-                int counter = 0;
-               
-                string name = "mohamed ahmed";
-                string type = "worker";
-                dbphone_no=new int [listSize_employees];
-                dbsalary =new int [listSize_employees];
-                employeepanel.Controls.Clear();
-                 totalemployees = 0;
-                for (int i = 0; i < listSize_employees; i++)
+            //Temporary Variables To Be Replaced by DB Values
+            Point origin = new Point(35, 3);
+            Point pos = new Point(35, 3);
+            int maxPerRow = 3;
+            int counter = 0;
+            DataTable dt=controllerObj.selectWorkersInfo();
+            employeepanel.Controls.Clear();
+            totalemployees = 0;
+            listSize_employees = dt.Rows.Count;
+            string name;
+            string type = "worker";
+            string phone_no;
+            int salary;
+            long ssn;
+            for (int i = 0; i < listSize_employees; i++)
+            {
+                name = dt.Rows[i][0]+" "+dt.Rows[i][1];
+                phone_no= dt.Rows[i][4].ToString();
+                salary= Int32.Parse((dt.Rows[i][3]).ToString());
+                ssn = Int64.Parse((dt.Rows[i][2]).ToString());
+                buttonsState += "0";
+                GroupBox employee = createemployee(name, pos, type, phone_no, salary,ssn); //Price and Name are obtained from product list
+                employeepanel.Controls.Add(employee);
+                totalemployees++;
+                counter++;
+                if (counter == maxPerRow)
                 {
-                    dbphone_no[i]= 12337839;
-                    dbsalary[i]= 10000;
-                    buttonsState += "0";
-                    GroupBox employee = createemployee(name, pos, type, dbphone_no[i], dbsalary[i]); //Price and Name are obtained from product list
-                    employeepanel.Controls.Add(employee);
-                    totalemployees++;
-                    //buttonsState += "0";
-                    counter++;
-                    if (counter == maxPerRow)
-                    {
-                        pos.X = origin.X;
-                        pos.Y += employee.Height + 5;
-                        counter = 0;
-                    }
-                    else
-                    {
-                        pos.X += employee.Width + 8;
-                    }
+                    pos.X = origin.X;
+                    pos.Y += employee.Height + 5;
+                    counter = 0;
                 }
+                else
+                {
+                    pos.X += employee.Width + 8;
+                }
+            }
 
             
 
@@ -175,23 +199,23 @@ namespace MainPage_Demo.Forms
             TextBox salarytextBox = sender as TextBox;
             //priceTextBox.Text=priceTextBox.Text.Replace(" ", "");
             GroupBox employee = (GroupBox)salarytextBox.Parent;
-
-            if (salarytextBox.Text == dbsalary[(int)employee.Tag].ToString())
+            int salary = controllerObj.selectsalarywithssn(Int64.Parse(employee.Tag.ToString()));
+            
+            if (salarytextBox.Text == salary.ToString())
             //if a price is changed go check if it is the same as in the database
             {
                 //if yess=> 
                 char[] temp = buttonsState.ToCharArray();
-                temp[(int)employee.Tag] = '0';
+                temp[(int)salarytextBox.Tag] = '0';
                 buttonsState = string.Join("", temp);
-
             }
             else
             {
                 char[] temp = buttonsState.ToCharArray();
-                temp[(int)employee.Tag] = '1';
+                temp[(int)salarytextBox.Tag] = '1';
                 buttonsState = string.Join("", temp);
             }
-
+            
             if (buttonsState.Contains('1') == false)
             //if a price is changed go check if it is the same as in the database
             {
@@ -207,20 +231,20 @@ namespace MainPage_Demo.Forms
             TextBox phone_notextBox = sender as TextBox;
             //priceTextBox.Text=priceTextBox.Text.Replace(" ", "");
             GroupBox employee = (GroupBox)phone_notextBox.Parent;
-
-            if (phone_notextBox.Text == dbphone_no[(int)employee.Tag].ToString())
+            long phone_no = controllerObj.selectphonenowithssn(Int64.Parse(employee.Tag.ToString()));
+            if (phone_notextBox.Text == phone_no.ToString())
             //if a price is changed go check if it is the same as in the database
             {
                 //if yess=> 
                 char[] temp = buttonsState.ToCharArray();
-                temp[(int)employee.Tag] = '0';
+                temp[(int)phone_notextBox.Tag] = '0';
                 buttonsState = string.Join("", temp);
 
             }
             else
             {
                 char[] temp = buttonsState.ToCharArray();
-                temp[(int)employee.Tag] = '1';
+                temp[(int)phone_notextBox.Tag] = '1';
                 buttonsState = string.Join("", temp);
             }
 
@@ -242,6 +266,10 @@ namespace MainPage_Demo.Forms
         {
             listSize_employees--;
             totalemployees--;
+            Button remove = sender as Button;
+            //priceTextBox.Text=priceTextBox.Text.Replace(" ", "");
+            GroupBox employee = (GroupBox)remove.Parent;
+            controllerObj.delete_worker(Int64.Parse(employee.Tag.ToString()));
             employees_Load(employeepanel, e);
         }
       
@@ -258,8 +286,8 @@ namespace MainPage_Demo.Forms
 
         private void addemployee_Click(object sender, EventArgs e)
         {
-            
-            listSize_employees++;
+            CreateWorker a = new CreateWorker(ref listSize_employees);
+            a.Show();
             employees_Load(employeepanel, e);
 
         }
@@ -267,40 +295,41 @@ namespace MainPage_Demo.Forms
         {
             int flag1 = 0;
             int flag2 = 0;
-            for (int i = 0; i < listSize_employees; i++)
+            Button save = sender as Button;
+            //priceTextBox.Text=priceTextBox.Text.Replace(" ", "");
+            GroupBox employee = (GroupBox)save.Parent;
+            String phone_no = ((TextBox)employee.Controls[3]).Text;
+            String salary = ((TextBox)employee.Controls[5]).Text;
+            long ssn = Int64.Parse(employee.Tag.ToString());
+            if (phone_no.All(Char.IsDigit) && phone_no != "" && Regex.IsMatch(phone_no, @"^[0-9]{11}$"))
             {
-                GroupBox employee = (GroupBox)employeepanel.Controls[i];
-                String phone_no = ((TextBox)employee.Controls[3]).Text;
-                String salary = ((TextBox)employee.Controls[5]).Text;
-                if (phone_no.All(Char.IsDigit) && phone_no != "")
-                {
-                    dbphone_no[i] = Int32.Parse(phone_no);
-                    flag1 = 1;
-                }
-                else
-                {
-                    MessageBox.Show("invalid phone_no");
-                    flag1 = 0;
-
-                }
-                if (salary.All(Char.IsDigit) && salary != "")
-                {
-                    dbsalary[i] = Int32.Parse(salary);
-                    flag2 = 1;
-                }
-                else
-                {
-                    MessageBox.Show("invalid salary");
-                    flag2 = 0;
-                }
-
-                if (flag1 == 1 && flag2 == 1)
-                {
-                    buttonActivation(false, (Button)employee.Controls[7]);
-                    buttonsState = buttonsState.Replace('1', '0');
-                }
+                controllerObj.update_phoneno(ssn,Int64.Parse(phone_no));
+                flag1 = 1;
+            }
+            else
+            {
+                MessageBox.Show("invalid phone_no");
+                flag1 = 0;
 
             }
+            if (salary.All(Char.IsDigit) && salary != "")
+            {
+                controllerObj.update_salary(ssn, Int16.Parse(salary));
+                flag2 = 1;
+            }
+            else
+            {
+                MessageBox.Show("invalid salary");
+                flag2 = 0;
+            }
+
+            if (flag1 == 1 && flag2 == 1)
+            {
+                buttonActivation(false, (Button)employee.Controls[7]);
+                buttonsState = buttonsState.Replace('1', '0');
+            }
+
+            
         }
 
     }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MainPage_Demo.Forms;
+using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,17 +10,19 @@ namespace MainPage_Demo
     {
         private Button currentButton;
         private Form activeForm;
-
+        Controller controllerObj;
 
         public adminView()
         {
             InitializeComponent();
             CloseChildForm.Visible = false;
             timer1.Start();
+            controllerObj = new Controller();
 
-            scheduleView.Columns.Add("column0", "Customer");
-            scheduleView.Columns.Add("column1", "Start Time");
-            scheduleView.Columns.Add("column2", "Finsh Time");
+            DataTable dt = controllerObj.SelectAllWorkers();
+            workers.DataSource = dt;
+            workers.DisplayMember = "FirstName";
+            workers.ValueMember = "SSN";
         }
 
         
@@ -104,6 +108,10 @@ namespace MainPage_Demo
             if (activeForm != null)
                 activeForm.Close();
             Reset();
+            DataTable dt = controllerObj.SelectAllWorkers();
+            workers.DataSource = dt;
+            workers.DisplayMember = "FirstName";
+            workers.ValueMember = "SSN";
         }
         private void Reset()
         {
@@ -152,6 +160,25 @@ namespace MainPage_Demo
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            DataTable dt1 = controllerObj.SelectALLSchedule();
+            for (int i = 0; i < dt1.Rows.Count; i++)
+            {
+                // < 0 − If date1 is earlier than date2
+                // = 0 − If date1 is the same as date2
+                // > 0 − If date1 is later than date2
+                DateTime finishTime = (DateTime)dt1.Rows[i][4];
+                if (DateTime.Compare(finishTime, DateTime.Now) < 0)
+                {
+                    int del = controllerObj.DeleteSchedule(Convert.ToInt32(dt1.Rows[i][1]));
+                }
+            }
+            DataTable dt = controllerObj.SelectWorkerSchedule(workers.SelectedValue.ToString());
+            scheduleView.DataSource = dt;
+            scheduleView.Refresh();
         }
     }
 }

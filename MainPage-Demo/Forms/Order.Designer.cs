@@ -38,13 +38,13 @@ namespace MainPage_Demo.Forms
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Createbtn = new System.Windows.Forms.Button();
+            this.lastname = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.firstname = new System.Windows.Forms.TextBox();
             this.phone = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.lastname = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.Createbtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -189,22 +189,31 @@ namespace MainPage_Demo.Forms
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Create new user";
             // 
-            // Createbtn
+            // lastname
             // 
-            this.Createbtn.BackColor = System.Drawing.Color.Transparent;
-            this.Createbtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Createbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Createbtn.Font = new System.Drawing.Font("Lucida Bright", 20F, System.Drawing.FontStyle.Bold);
-            this.Createbtn.Image = global::MainPage_Demo.Properties.Resources.add_document_free_icon_font__2_;
-            this.Createbtn.Location = new System.Drawing.Point(107, 234);
-            this.Createbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Createbtn.Name = "Createbtn";
-            this.Createbtn.Size = new System.Drawing.Size(244, 58);
-            this.Createbtn.TabIndex = 0;
-            this.Createbtn.Text = "Create";
-            this.Createbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.Createbtn.UseVisualStyleBackColor = false;
-            this.Createbtn.Click += new System.EventHandler(this.button1_Click);
+            this.lastname.BackColor = System.Drawing.SystemColors.Window;
+            this.lastname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lastname.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            this.lastname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
+            this.lastname.Location = new System.Drawing.Point(137, 128);
+            this.lastname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lastname.Multiline = true;
+            this.lastname.Name = "lastname";
+            this.lastname.Size = new System.Drawing.Size(281, 27);
+            this.lastname.TabIndex = 15;
+            this.lastname.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lastname_KeyDown);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
+            this.label5.Location = new System.Drawing.Point(12, 128);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 23);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Last Name";
             // 
             // firstname
             // 
@@ -218,6 +227,8 @@ namespace MainPage_Demo.Forms
             this.firstname.Name = "firstname";
             this.firstname.Size = new System.Drawing.Size(281, 27);
             this.firstname.TabIndex = 13;
+            this.firstname.TextChanged += new System.EventHandler(this.firstname_TextChanged);
+            this.firstname.KeyDown += new System.Windows.Forms.KeyEventHandler(this.firstname_KeyDown);
             // 
             // phone
             // 
@@ -231,6 +242,7 @@ namespace MainPage_Demo.Forms
             this.phone.Name = "phone";
             this.phone.Size = new System.Drawing.Size(281, 27);
             this.phone.TabIndex = 12;
+            this.phone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.phone_KeyDown);
             // 
             // label1
             // 
@@ -257,30 +269,22 @@ namespace MainPage_Demo.Forms
             this.label4.TabIndex = 10;
             this.label4.Text = "First Name";
             // 
-            // lastname
+            // Createbtn
             // 
-            this.lastname.BackColor = System.Drawing.SystemColors.Window;
-            this.lastname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lastname.Font = new System.Drawing.Font("Lucida Fax", 12F);
-            this.lastname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
-            this.lastname.Location = new System.Drawing.Point(137, 128);
-            this.lastname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lastname.Multiline = true;
-            this.lastname.Name = "lastname";
-            this.lastname.Size = new System.Drawing.Size(281, 27);
-            this.lastname.TabIndex = 15;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
-            this.label5.Location = new System.Drawing.Point(12, 128);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 23);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Last Name";
+            this.Createbtn.BackColor = System.Drawing.Color.Transparent;
+            this.Createbtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Createbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Createbtn.Font = new System.Drawing.Font("Lucida Bright", 20F, System.Drawing.FontStyle.Bold);
+            this.Createbtn.Image = global::MainPage_Demo.Properties.Resources.add_document_free_icon_font__2_;
+            this.Createbtn.Location = new System.Drawing.Point(107, 234);
+            this.Createbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Createbtn.Name = "Createbtn";
+            this.Createbtn.Size = new System.Drawing.Size(244, 58);
+            this.Createbtn.TabIndex = 0;
+            this.Createbtn.Text = "Create";
+            this.Createbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.Createbtn.UseVisualStyleBackColor = false;
+            this.Createbtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // Order
             // 

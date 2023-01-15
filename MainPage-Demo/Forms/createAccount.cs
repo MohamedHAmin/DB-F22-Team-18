@@ -7,9 +7,11 @@ namespace MainPage_Demo.Forms
     public partial class createAccount : Form
     {
         private Form activeForm;
+        Controller controllerObj;
         public createAccount()
         {
             InitializeComponent();
+            controllerObj = new Controller();
         }
 
         private void OpenChildForm(Form childForm)
@@ -114,7 +116,8 @@ namespace MainPage_Demo.Forms
 
         private void newworker_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.CreateWorker());
+            int employees_no = controllerObj.countworkers();
+            OpenChildForm(new Forms.CreateWorker(ref employees_no));
         }
 
         private void newuser_Click(object sender, EventArgs e)

@@ -12,17 +12,29 @@ namespace MainPage_Demo.Forms
 {
     public partial class History : Form
     {
+        Controller controllerObj;
         public History()
         {
             InitializeComponent();
+            controllerObj = new Controller();
 
-            Logs.Columns.Add("column0", "Type"); //service or maintinance
-            Logs.Columns.Add("column1", "Name"); //name of service or device 
-            Logs.Columns.Add("column2", "ID");   //device id or order id
-            Logs.Columns.Add("column3", "Cost");
-            Logs.Columns.Add("column4", "Teller Name");
-            Logs.Columns.Add("column5", "Company"); //in case of device
-            Logs.Columns.Add("column6", "Company contact");
+            //Logs.Columns.Add("column0", "Type"); //service or maintinance
+            //Logs.Columns.Add("column1", "Name"); //name of service or device 
+            //Logs.Columns.Add("column2", "ID");   //device id or order id
+            //Logs.Columns.Add("column3", "Cost");
+            //Logs.Columns.Add("column4", "Teller Name");
+            //Logs.Columns.Add("column5", "Company"); //in case of device
+            //Logs.Columns.Add("column6", "Company contact");
+            //Logs.Columns.Add("column7", "Data");
+
+            DurationList.Items.Add("All");
+            DurationList.Items.Add("Week");
+            DurationList.Items.Add("Month");
+
+
+            DataTable dt = controllerObj.SelectAllLogs();
+            Logs.DataSource = dt;
+            Logs.Refresh();
         }
 
         private void History_Load(object sender, EventArgs e)
@@ -43,6 +55,35 @@ namespace MainPage_Demo.Forms
             }
             //label4.ForeColor = ThemeColor.SecondaryColor;
             //label5.ForeColor = ThemeColor.PrimaryColor;
+        }
+
+        private void DurationList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (DurationList.Text == "All")
+            {
+                DataTable dt = controllerObj.SelectAllLogs();
+                Logs.DataSource = dt;
+                Logs.Refresh();
+            }
+            else if (DurationList.Text == "Week")
+            {
+                //TODO - Change to be week
+                DataTable dt = controllerObj.SelectWeekLogs();
+                Logs.DataSource = dt;
+                Logs.Refresh();
+            }
+            else
+            {
+                //TODO - Change to be Month
+                DataTable dt = controllerObj.SelectMonthLogs();
+                Logs.DataSource = dt;
+                Logs.Refresh();
+            }
         }
     }
 }

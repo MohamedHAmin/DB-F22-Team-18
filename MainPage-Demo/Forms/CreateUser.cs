@@ -14,9 +14,11 @@ namespace MainPage_Demo.Forms
 {
     public partial class CreateUser : Form
     {
+        Controller controllerObj;
         public CreateUser()
         {
             InitializeComponent();
+            controllerObj = new Controller();
         }
 
         private void CreateUser_Paint(object sender, PaintEventArgs e)
@@ -216,8 +218,25 @@ namespace MainPage_Demo.Forms
             }
             else
             {
-                //TODO - check if exist in db (SelectAccountByUsername), if not Insert Teller in db (InsertTeller) and create account with password 123456 (InsertAccount)
-                MessageBox.Show("Account created");
+                //DONE - check if exist in db (SelectAccountByUsername), if not Insert Teller in db (InsertTeller) and create account with password 123456 (InsertAccount)
+                DataTable dt = controllerObj.SelectUser(username.Text);
+                if (dt != null)
+                {
+                    MessageBox.Show("Worker already exist");
+                }
+                else
+                {
+                    int result = controllerObj.InsertSystemUser(username.Text, firstname.Text, lastname.Text, phone.Text, ssn.Text, salary.Text);
+                    if (result == 0)
+                    {
+                        MessageBox.Show("The insertion of a new Teller failed");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Teller account created successfully!");
+                    }
+
+                }
                 this.Close();
             }
         }

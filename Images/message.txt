@@ -1,0 +1,132 @@
+  public DataTable selectWorkersInfo()
+        {
+            string query = "select * from worker";
+            return dbMan.ExecuteReader(query);        
+        }
+        public DataTable selectservicesInfo()
+        {
+            string query = "select * from services";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable selectservicesInfo(string servicename)
+        {
+            string query = "select * from services where servicename='"+servicename+"'";
+            return dbMan.ExecuteReader(query);
+        }
+        public int countworkers()
+        {
+            string query = "select COUNT(*) from Worker  ";
+            return (int)dbMan.ExecuteScalar(query);
+        }
+        public int selectsalarywithssn(long ssn)
+        {
+            string query = "select salary from worker where ssn="+ssn;
+            return (int)dbMan.ExecuteNonQuery(query);
+
+        }
+        public long selectphonenowithssn(long ssn)
+        {
+            string query = "select phone from worker where ssn=" + ssn;
+            return Int64.Parse(dbMan.ExecuteScalar(query).ToString());
+
+        }
+        public int update_salary(long ssn,int salary)
+        {
+            string query = "update worker set salary='"+salary +"' where ssn='" + ssn+"'"; 
+                           
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int update_phoneno(long ssn, long phoneno)
+        {
+            string query = "update worker set phone='" + phoneno + "' where ssn='" + ssn + "'";
+
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int insert_worker(long ssn, long phoneno,string first_name,string last_name,int salary)
+        {
+            string query = "insert into worker (ssn,phone,firstName,lastname,salary) values ("+ ssn+"," + phoneno+",'"+first_name+"','"+last_name+"',"+salary+")";
+
+            return dbMan.ExecuteNonQuery(query);
+        }
+      
+        public int delete_worker(long ssn)                
+            
+        {
+            string query = "delete from worker where ssn='" + ssn + "'";
+
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int insert_service(int discount, int price, int duration, string service_name)
+        {
+            string query = "insert into services (Discount,price,ServiceDuration,servicename) values (" + discount + "," + price + "," + duration + ",'" + service_name + "')";
+
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int update_discount(string servicename,int discount)
+        {
+            string query = "update services set discount=" + discount + " where servicename='" + servicename + "'";
+
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int update_price(string servicename, int price)
+        {
+            string query = "update services set price=" + price + " where servicename='" + servicename + "'";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int update_duration(string servicename, int duration)
+        {
+            string query = "update services set serviceduration=" + duration + " where servicename='" + servicename + "'";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int delete_service(string servicename)
+        {
+            string query = "delete from services where servicename='" + servicename + "'";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public DataTable selectdevicesInfo()
+        {
+            string query = "select * from devices";
+            return dbMan.ExecuteReader(query);
+        }
+        public int delete_device(int deviceid)
+
+        {
+            string query = "delete from devices where id='" + deviceid + "'";
+
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int insert_device(string devicename,int deviceid)
+        {
+            string query = "insert into devices (id,name,InMaintenance) values (" + deviceid + ",'"+ devicename + "',"+1+")";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public DataTable SelectAllDevicesNotInMaintenance()
+        {
+            string query = "SELECT * FROM Devices WHERE InMaintenance = 0";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable SelectDevices(int id)
+        {
+            string query = "SELECT * FROM Devices WHERE ID = " + id;
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable SelectMaintenanceInfo(string name)
+        {
+            string query = "SELECT * FROM Maintenance WHERE DeviceName = '" + name + "'";
+            return dbMan.ExecuteReader(query);
+        }
+        public int UpdateDeviceMaintenance(int id)
+        {
+            string query = "UPDATE Devices SET InMaintenance=" + 1+ " WHERE ID =" + id + ";";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int UpdateDeviceMaintenance_0(int id)
+        {
+            string query = "UPDATE Devices SET InMaintenance=" + 0 + " WHERE ID =" + id + ";";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int InsertLogs(string type, string name, int id, int cost, string tellername, string company, string companyContanct, string date)
+        {
+            string query = "INSERT INTO Logs Values ('" + type + "', '" + name + "', " + id + ", " + cost + ", '" + tellername + "', '" + company + "', '" + companyContanct + "', '" + date + "')";
+            return dbMan.ExecuteNonQuery(query);
+        }

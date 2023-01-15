@@ -13,9 +13,12 @@ namespace MainPage_Demo.Forms
     public partial class Login_Form : Form
     {
         private Form activeForm;
+
+        Controller controllerObj;
         public Login_Form()
         {
             InitializeComponent();
+            controllerObj = new Controller();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -42,20 +45,30 @@ namespace MainPage_Demo.Forms
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            //TODO: check username & password ( SelectUser() )
-            if(username.Text == "admin" && password.Text == "1234" /*&& isadmin = true*/)
+            //DONE: check username & password ( SelectUser() )
+            string Username = username.Text;
+            string Password = password.Text;
+            DataTable dt = controllerObj.SelectSystemUser(Username, Password);
+            if (dt == null)
             {
-                OpenChildForm(new adminView());
+                MessageBox.Show("Invalid User");
+                return;
             }
-            
-            else if(username.Text == "teller" && password.Text == "1234" /*&& isadmin != true*/){
-                OpenChildForm(new TellerView());
+
+            if (dt.Rows[0][2].ToString() == "123456")
+            {
+                Form childForm = new ChangePassword(Username);
+                childForm.Show();
             }
-            
             else
             {
-                MessageBox.Show("Please enter a valid Username & Password");
+                bool admin = (bool)dt.Rows[0][0];
+                if (admin)
+                    OpenChildForm(new adminView());
+                else
+                    OpenChildForm(new TellerView(Username));
             }
+
             username.Text = "Username";
             username.ForeColor = Color.Silver;
             password.Text = "Password";
@@ -98,6 +111,55 @@ namespace MainPage_Demo.Forms
                 password.Text = "Password";
                 password.ForeColor = Color.Silver;
                 password.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void username_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                password.Select();
+            }
+        }
+
+        private void username_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+        private void password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button2_Click(sender, e);
+            }
+        }
+
+        private void password_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+        private void password_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void visible_CheckedChanged(object sender, EventArgs e)
+        {
+            if (visible.Checked)
+            {
+                password.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                password.UseSystemPasswordChar = true;
             }
         }
     }

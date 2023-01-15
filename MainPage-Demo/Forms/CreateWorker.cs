@@ -9,14 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
-
 namespace MainPage_Demo.Forms
 {
     public partial class CreateWorker : Form
     {
-        public CreateWorker()
+        Controller controllerObj;
+        int listSize_employees;
+        public CreateWorker(ref int listSize_employee)
         {
+            controllerObj = new Controller();
             InitializeComponent();
+            listSize_employees = listSize_employee;
         }
 
         private void goBack_MouseHover(object sender, EventArgs e)
@@ -176,6 +179,7 @@ namespace MainPage_Demo.Forms
             {
                 //TODO - check if exist in db (SelectWorker), if not Insert custmer in db (InsertWorker)
                 MessageBox.Show("Worker added");
+                controllerObj.insert_worker(Int64.Parse(ssn.Text), Int64.Parse(phone.Text), firstname.Text, lastname.Text, Int16.Parse(salary.Text));
                 this.Close();
             }
         }

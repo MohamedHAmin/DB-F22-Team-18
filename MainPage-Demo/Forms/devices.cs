@@ -8,102 +8,62 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
-
 namespace MainPage_Demo.Forms
 {
     public partial class devices : Form
     {
-        private int[] dbcapicity;
-        private int[] dbmaintance;
+       
         private int totaldevices = 0;
-        string buttonsState = "";
+        private int devices_no = 0;
+
+        Controller controllerObj;
         public devices()
         {
             InitializeComponent();
             this.Paint += new PaintEventHandler(set_background);
+            controllerObj = new Controller();
         }
-        private void buttonActivation(bool state)
-        {
-            if (state == true)
-            {
-                discardButton.Enabled = true;
-                discardButton.FlatStyle = FlatStyle.Flat;
-                discardButton.BackColor = Color.LightCoral;
-                discardButton.ForeColor = Color.FromArgb(33, 86, 118);
-                saveButton.Enabled = true;
-                saveButton.FlatStyle = FlatStyle.Flat;
-                saveButton.BackColor = Color.LightGreen;
-                saveButton.ForeColor = Color.FromArgb(33, 86, 118);
-            }
-            else
-            {
-                discardButton.Enabled = false;
-                discardButton.FlatStyle = FlatStyle.Standard;
-                discardButton.BackColor = Color.Silver;
-                discardButton.ForeColor = Color.DimGray;
-                saveButton.Enabled = false;
-                saveButton.FlatStyle = FlatStyle.Standard;
-                saveButton.BackColor = Color.Silver;
-                saveButton.ForeColor = Color.DimGray;
-            }
-        }
+      
         private void editPriceTitle_Click(object sender, EventArgs e)
         {
 
         }
 
-        private GroupBox createdevice(String deviceName, Point position, string picture, int capicity,int time_to_maintence)
+        private GroupBox createdevice(String deviceName, Point position, string picture, int deviceid)
+        
         {
-            Label CapicityTemp = new Label();
-            CapicityTemp.Text = "capicity";
-            CapicityTemp.Location = new Point(18, 135);
-            CapicityTemp.Size = new Size(60, 15);
-            CapicityTemp.ForeColor = Color.FromArgb(33, 86, 118);
-            CapicityTemp.Font = new Font("Lucida Bright", 9, FontStyle.Bold);
-
-            Label maintenceTemp = new Label();
-            maintenceTemp.Text = "maintanace time";
-            maintenceTemp.Location = new Point(18, 160);
-            maintenceTemp.Size = new Size(120, 15);
-            maintenceTemp.ForeColor = Color.FromArgb(33, 86, 118);
-            maintenceTemp.Font = new Font("Lucida Bright", 9, FontStyle.Bold);
-
-            TextBox capicitytextBox = new TextBox();
-            capicitytextBox.Text = capicity.ToString();
-            capicitytextBox.Location = new Point(80, 135);
-            capicitytextBox.Size = new Size(85, 20);
-            capicitytextBox.TextChanged += capicityChangeCheck;
-            //priceTextBox.TabStop = false;
-
-            TextBox maintenceTextBox = new TextBox();
-            maintenceTextBox.Text = time_to_maintence.ToString();
-            maintenceTextBox.Location = new Point(140, 160);
-            maintenceTextBox.Size = new Size(85, 20);
-            maintenceTextBox.TextChanged += maintanceChangeCheck;
+          
 
             Label deviceNameLabel = new Label();
             deviceNameLabel.Text = deviceName;
             deviceNameLabel.Location = new Point(72, 19);
             deviceNameLabel.ForeColor = Color.FromArgb(33, 86, 118);
             deviceNameLabel.Font = new Font("Lucida Bright", 10, FontStyle.Bold);
+            deviceNameLabel.Tag = totaldevices;
 
             PictureBox icon = new PictureBox();
             icon.ImageLocation = picture;
             icon.Location = new Point(60, 50);
-            icon.Size = new Size(144, 144);
+            icon.Size = new Size(100, 100);
+
+            Button remove = new Button();
+            remove.Text = "Remove";
+            remove.Location = new Point(45, 150);
+            remove.Size = new Size(80, 25);
+            remove.Visible = true;
+            remove.Enabled = true;
+            remove.Click += removedevice;
+            remove.BackColor = Color.LightCoral;
+            remove.ForeColor = Color.FromArgb(33, 86, 118);
+            remove.Tag = totaldevices;
 
             GroupBox device = new GroupBox();
             device.Location = position;
-            device.Size = new Size(230, 200);
-            device.Tag = totaldevices;
-            device.Controls.Add(CapicityTemp);
-            device.Controls.Add(capicitytextBox);
-            device.Controls.Add(maintenceTemp);
-            device.Controls.Add(maintenceTextBox);
+            device.Size = new Size(230, 180);
+            device.Tag = deviceid;
             device.Controls.Add(deviceNameLabel);
             device.Controls.Add(icon);
-
-
+            device.Controls.Add(remove);
 
             return device;
         }
@@ -115,101 +75,38 @@ namespace MainPage_Demo.Forms
     
         private void devices_Load(object sender, EventArgs e)
         {
-            int listsize_devices = 10;
             Point origin = new Point(35, 3);
             Point pos = origin;
-            int maxPerRow = 5;
+            int maxPerRow = 4;
             int counter = 0;
-            dbcapicity = new int[listsize_devices];
-            dbmaintance = new int[listsize_devices];
-            for (int i = 0; i < listsize_devices; i++)
+            string devicename;
+            int deviceid;
+            DataTable dt = controllerObj.selectdevicesInfo();
+            devices_no = dt.Rows.Count;
+            for (int i = 0; i < devices_no; i++)
             {
-                buttonsState += "0";
-                dbcapicity[i] = 10;
-                dbmaintance[i] = 30;
-                string location_picture = "C:/college_items/database/databbase project/DB-F22-Team-18/MainPage-Demo/Resources/hair-dryer.png";
-                GroupBox addeddevice = createdevice("device " + (i + 1).ToString(), pos, location_picture, dbcapicity[i], dbmaintance[i]); //Price and Name are obtained from product list
-                productPanel.Controls.Add(addeddevice);
-                totaldevices++;
-                counter++;
-                if (counter == maxPerRow)
+                if (dt.Rows[i][2].ToString()=="False")
                 {
-                    pos.X = origin.X;
-                    pos.Y += addeddevice.Height + 2;
-                    counter = 0;
-                }
-                else
-                {
-                    pos.X += addeddevice.Width + 5;
+                    devicename = dt.Rows[i][0].ToString();
+                    deviceid = Int16.Parse(dt.Rows[i][1].ToString());
+                    string location_picture = "D:/F22/DB/Project/DB-F22-Team-18/Images/hair-dryer.png";
+                    GroupBox addeddevice = createdevice(devicename, pos, location_picture, deviceid); //Price and Name are obtained from product list
+                    productPanel.Controls.Add(addeddevice);
+                    totaldevices++;
+                    counter++;
+                    if (counter == maxPerRow)
+                    {
+                        pos.X = origin.X;
+                        pos.Y += addeddevice.Height + 2;
+                        counter = 0;
+                    }
+                    else
+                    {
+                        pos.X += addeddevice.Width + 5;
+                    }
                 }
             }  
         }
-
-        private void capicityChangeCheck(object sender, EventArgs e)
-        {
-            TextBox capicitytextBox = sender as TextBox;
-            //priceTextBox.Text=priceTextBox.Text.Replace(" ", "");
-            GroupBox product = (GroupBox)capicitytextBox.Parent;
-
-            if (capicitytextBox.Text == dbcapicity[(int)product.Tag].ToString())
-            //if a price is changed go check if it is the same as in the database
-            {
-                //if yess=> 
-                char[] temp = buttonsState.ToCharArray();
-                temp[(int)product.Tag] = '0';
-                buttonsState = string.Join("", temp);
-
-            }
-            else
-            {
-                char[] temp = buttonsState.ToCharArray();
-                temp[(int)product.Tag] = '1';
-                buttonsState = string.Join("", temp);
-            }
-
-            if (buttonsState.Contains('1') == false)
-            //if a price is changed go check if it is the same as in the database
-            {
-                buttonActivation(false);
-            }
-            else
-            {
-                buttonActivation(true);
-            }
-        }
-        private void maintanceChangeCheck(object sender, EventArgs e)
-        {
-            TextBox MaintanceTextBox = sender as TextBox;
-            //priceTextBox.Text=priceTextBox.Text.Replace(" ", "");
-            GroupBox product = (GroupBox)MaintanceTextBox.Parent;
-
-            if (MaintanceTextBox.Text == dbmaintance[(int)product.Tag].ToString())
-            //if a price is changed go check if it is the same as in the database
-            {
-                //if yess=> 
-                char[] temp = buttonsState.ToCharArray();
-                temp[(int)product.Tag] = '0';
-                buttonsState = string.Join("", temp);
-
-            }
-            else
-            {
-                char[] temp = buttonsState.ToCharArray();
-                temp[(int)product.Tag] = '1';
-                buttonsState = string.Join("", temp);
-            }
-
-            if (buttonsState.Contains('1') == false)
-            //if a price is changed go check if it is the same as in the database
-            {
-                buttonActivation(false);
-            }
-            else
-            {
-                buttonActivation(true);
-            }
-        }
-
         private void set_background(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -225,58 +122,19 @@ namespace MainPage_Demo.Forms
             Refresh();
         }
 
-        private void discardButton_Click_1(object sender, EventArgs e)
+        private void adddevice_button(object sender, EventArgs e)
         {
-            for (int i = 0; i < totaldevices; i++)
-            {
-                GroupBox product = (GroupBox)productPanel.Controls[i];
-                ((TextBox)product.Controls[1]).Text = dbcapicity[i].ToString();
-                ((TextBox)product.Controls[3]).Text = dbmaintance[i].ToString();
-                //((TextBox)product.Controls[1]).Text = dbPrices[(int)product.Tag].ToString();
-                buttonActivation(false);
-                //buttonsState = buttonsState.Replace('1', '0');
-            }
+            Adddevice s = new Adddevice (ref totaldevices);
+            s.Show();
         }
-
-        private void saveButton_Click_1(object sender, EventArgs e)
+        private void removedevice(object sender, EventArgs e)
         {
-            int flag1 = 0;
-            int flag2 = 0;
-            for (int i = 0; i < totaldevices; i++)
-            {
-                GroupBox product = (GroupBox)productPanel.Controls[i];
-                String capicity = ((TextBox)product.Controls[1]).Text;
-                String maintance = ((TextBox)product.Controls[3]).Text;
-                if(capicity.All(Char.IsDigit) && capicity != "")
-                { 
-                   dbcapicity[i] = Int32.Parse(capicity);
-                    flag1 = 1;
-                }
-                else
-                {
-                    MessageBox.Show("invalid capicity");
-                    flag1 = 0;
-                    
-                }
-                if(maintance.All(Char.IsDigit) && maintance != "")
-                {
-                    dbmaintance[i] = Int32.Parse(maintance);
-                    flag2 = 1;
-                }
-                else
-                {
-                    MessageBox.Show("invalid maintence period");
-                    flag2 = 0;
-                }
-
-                //dbPrices[(int)product.Tag] = Int32.Parse(price); //a3tked dyy kda byakhod el price w y3delo fy el database
-                if(flag1==1 && flag2==1) 
-                {
-                        buttonActivation(false);
-                        buttonsState = buttonsState.Replace('1', '0');
-                    
-                }
-            }
+            totaldevices--;
+            Button remove = sender as Button;
+            //priceTextBox.Text=priceTextBox.Text.Replace(" ", "");
+            GroupBox device = (GroupBox)remove.Parent;
+            controllerObj.delete_device(Int32.Parse(device.Tag.ToString()));
+            //areload el panel
         }
     }
 }
