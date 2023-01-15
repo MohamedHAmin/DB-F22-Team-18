@@ -1,4 +1,4 @@
-## DB-F22-Team-18
+# DB-F22-Team-18
 This is Database course project Fall 2022, we will be using an SQL server language along with C# to implement a desktop application
 
 As the world is moving towards digitalization. We looked at a system that could be digitalized, and we choose a management system for a beauty salon.  
@@ -7,7 +7,7 @@ We’re planning to implement a Desktop Application to be used as a management s
 
 In this system there will be two users, first the Admin who represent the salon owner. Teller who represent the one working on the front desk to place orders and answer the customers questions and offer them discounts. A list of the users privileges could be found in the next section.
 
-#Implementation
+##Implementation
 The application start with Login page shown below
 
 ![](Images/Login.png)
